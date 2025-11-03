@@ -36,7 +36,7 @@ df['endereco'] = df['endereco'].fillna('estado não informado')
 df['idade_corrigida'] = df['idade'].fillna(df['idade'].mean())
 
 # Tratar formato de dados
-df['data corrigida'] = pd.to_datetime(df['data'], format='%d/%m/%Y', errors='coerce')
+df['data_corrigida'] = pd.to_datetime(df['data'], format='%d/%m/%Y', errors='coerce')
 
 #Tratar dados duplicados
 print('Quantidade de registros atual:', df.shape[0])
@@ -47,10 +47,10 @@ print('Quantidade de registros removendo as duplicatas:', len(df))
 print('Dados limpos:\n', df)
 
 #Salvar dataframe
-df['data'] = df['data corrigida']
-df['idade'] = df['idade corrigida']
+df['data'] = df['data_corrigida']
+df['idade'] = df['idade_corrigida']
 
-df_salvar = df[['nome', 'cpf', 'idade', 'data' 'endereco', 'estado']]
+df_salvar = df[['nome', 'cpf', 'idade', 'data', 'endereco', 'estado']]
 df_salvar.to_csv('clientes_limpeza.csv', index=False)
 
 print('Novo DataFrame: \n', pd.read_csv('clientes_limpeza.csv'))

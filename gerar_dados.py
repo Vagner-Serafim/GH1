@@ -6,7 +6,7 @@ faker = Faker('pt-br')
 
 dados_pessoas = []
 
-for _ in range(10):
+for _ in range(1000):
     nome = faker.name()
     cpf = faker.cpf()
     idade = faker.random_int(18, 60)
